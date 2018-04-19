@@ -1,0 +1,28 @@
+<div class="container">
+	<h1>last.fm top 10 Rock izvođača</h1>
+	
+ 	<div class="row">
+        <div class="col-4 card-wrapper" *ngFor="let artist of responseJson.artist"> 
+        	<div class="card">
+
+	    	   <div class="card-front">
+		    	   <div class="card-image">
+		    	   		<!-- <div class="image-bg" style="background: url({{artist.image[3]['#text']}})"></div> -->
+					  <img class="card-img-top" src="{{artist.image[3]['#text']}}" alt="{{artist.name}}">
+					  <span class="rank">{{artist['@attr']['rank']}}</span>
+		    	   </div>
+			    	<h4 class="card-title">{{artist.name}}</h4>
+		    	</div>
+
+		    	<div class="card-back">
+				  <div class="card-block">
+				    <p class="card-text">{{artist.author_info}}...</p>
+				    <a routerLink="artist/{{artist.name}}" class="btn btn-primary">Albums</a>
+				  </div>
+				</div>
+
+			</div>
+        </div>
+    </div>
+
+</div>	

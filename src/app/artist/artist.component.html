@@ -1,0 +1,56 @@
+<div class="container" id="albums-list">
+	<div class="row">
+		<div class="col-12">
+			<h1 id="h1">
+				<span>{{currentArtist}} Albums</span>
+				<i class="album-ico"></i>
+				<a id="home" routerLink="">Back To Homepage</a>
+			</h1>
+		</div>
+		<div class="col-12">
+			<form class="form-inline">
+				<input type="search" id="search" class="form-control" placeholder="Search Albums by {{currentArtist}}" (input)="albumSearch($event.target.value)" />
+			</form>
+		</div>
+	</div>
+	
+ 	<div class="row">
+
+    	
+	        <div class="col-4 card-wrapper" *ngFor="let album of responseJson.album"> 
+
+	        	<div class="card">
+
+		    	   <div class="card-front">
+			    	   <div class="card-image">
+						  <img *ngIf="album.image[3]['#text']" class="card-img-top" src="{{album.image[3]['#text']}}" alt="{{album.name}}">
+						  <img *ngIf="!album.image[3]['#text']" class="card-img-top no-image" src="assets/img/no-image.svg" alt="{{album.name}}">
+			    	   </div>
+				    	<h4 class="card-title">{{album.name}}</h4>
+			    	</div>
+
+			    	<div class="card-back">
+					  <div class="card-block">
+					  	<ng-container *ngIf="!album.tracks">
+			  				<div class="unavailable">
+			  					<span>Sorry, no tracks provided in the API</span>
+			  					<a href="{{album.url}}" target="_blank">Check out the album on last.fm</a>
+			  				</div>	
+					  	</ng-container>
+					  	<ng-container *ngIf="album.tracks">
+						  	<ul class="tracks">
+						  		<li clas="track" *ngFor="let track of album.tracks">
+						    		<a href="{{track.url}}" target="_blank" class="track-item">{{track['@attr']['rank']}} {{track.name}}</a>
+						  		</li>
+						  	</ul>
+					  	</ng-container>
+					  </div>
+					</div>
+
+				</div>
+
+	        </div>
+    	
+    </div>
+</div>	
+<div id="load-more"></div>

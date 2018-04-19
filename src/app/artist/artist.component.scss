@@ -1,0 +1,124 @@
+/* Global Page Styles */
+.container {
+	min-height: calc(100vh - 50px); /* set vieport height minus load-more height (avoid scroll) so albums are not loaded when search is empty (prevent load area to be triggered) */
+}
+
+h1 {
+	position: relative;
+	padding: 20px 150px 20px 20px;
+
+	span,
+	.album-ico {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.album-ico {
+		width: 36px;
+		height: 36px;
+		background-image: url(assets/img/albums.png);
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+	}
+
+	#home {
+		top: 50%;
+		font-size: 16px;
+		text-decoration: none;
+
+		&:not(.sticky) {
+			position: absolute;
+			right: 20px;
+			-webkit-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+
+		&.sticky {
+			position: fixed;	
+			right: 10px;
+			transform-origin: 0 0;
+			-webkit-transform: translateY(-100%) translateX(100%) rotate(90deg);
+			transform: translateY(-100%) translateX(100%) rotate(90deg);			
+		}
+	}
+}
+
+#albums-list {
+
+	&.searching {
+
+		.card-wrapper {
+
+			&:not(.active) {
+				display: none;
+			}
+		}
+	}
+}
+/* Global Page Styles - end */
+
+/* Form Styles */
+.form-inline {
+	text-align: center;
+	align-items: center;
+  	justify-content: center;
+  	margin-bottom: 40px;
+  	padding: 20px 0;
+  	background-color: #efefef;
+
+	input {
+		max-width: 400px;
+		width: 100%;
+	}
+}
+/* Form styles - end */
+
+.card-wrapper {
+
+	.card {
+
+		/* Card Back Styles */
+
+		.card-back {
+			z-index: 3;
+
+			.card-block {
+				padding: 0;
+
+				.unavailable {
+					padding: 20px;
+					color: indigo;
+
+					* {
+						display: block;						
+					}
+				}
+
+				.tracks {
+					padding: 15px 25px;
+					height: 320px;
+					overflow: auto;
+					list-style: none;
+
+					.track {
+						font-size: 14px;
+					}
+
+					li {
+
+						&:last-child {
+							margin-bottom: 20px;
+						}
+					}
+				}
+			}
+		}
+
+		/* Card Back Styles - end */
+	}
+}
+
+#load-more {
+	height: 50px;
+}
