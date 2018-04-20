@@ -42,6 +42,26 @@ h1 {
 			transform: translateY(-100%) translateX(100%) rotate(90deg);			
 		}
 	}
+
+	@media only screen and (max-width: 480px) {
+		padding: 20px;
+
+		span {
+			font-size: 24px;
+		}
+
+		#home {
+
+			&:not(.sticky) {
+				position: relative;
+				display: block;
+				top: 0;
+				right: 0;
+				-webkit-transform: none; 
+				transform: none;
+			}
+		}
+	}
 }
 
 #albums-list {
@@ -100,6 +120,10 @@ h1 {
 					height: 320px;
 					overflow: auto;
 					list-style: none;
+
+					@media only screen and (max-width: 320px) {
+						max-height: 290px;
+					}
 
 					.track {
 						font-size: 14px;

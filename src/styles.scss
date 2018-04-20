@@ -12,11 +12,16 @@
 
 	.card {
 		position: relative;
-		width: 320px;
+		width: 100%;
+		max-width: 320px;
 		height: 320px;
 		margin: 0 auto;
 		transition: 0.4s;
 		transform-style: preserve-3d;
+
+		@media only screen and (max-width: 320px) {
+			height: 290px;
+		}
 
 		.card-front,
 		.card-back  {
@@ -76,14 +81,18 @@
 			display: table;
 			top: 0;
 			left: 0;
+			-webkit-transform: rotateY(180deg);
 			transform: rotateY(180deg);
-
 
 			.card-block {
 				display: table-cell;
 				vertical-align: middle;
 				height: 100%;
 				padding: 25px;
+
+				@media only screen and (max-width: 600px) {
+					font-size: 14px;
+				}
 			}
 		}
 	}
